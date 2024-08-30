@@ -10,3 +10,7 @@ Tools/Bahan yang digunakan pada tugas ini :
 
 ## Jenkins Freestyle Project
 
+* Pertama kita setting terlebih dahulu AWS Lambda nya. Buka Lambda pada AWS, kemudian kita create function baru, saya menggunakan python untuk bahasa pemrogramannya serta saya tambah trigger API Gateway dengan HTTP API untuk nanti mudah melihat hasilnya.
+
+![image](https://github.com/user-attachments/assets/072f7621-2482-4cf2-9572-fb8ad725dd25)
+
