@@ -30,22 +30,24 @@ Tools/Bahan yang digunakan pada tugas ini :
 ![image](https://github.com/user-attachments/assets/62438420-a719-45c7-9eed-69e9206ace08)
 
 Untuk command shell yang saya digunakan yakni : 
-```
-powershell Compress-Archive -Update lambda_function.py hello-world-didan.zip
-```
-Command ini berfungsi untuk mengubah file lambda_function.py yang ada di github repository menjadi file zip yang nanti digunakan untuk upload ke Lambda function
+>```
+>powershell Compress-Archive -Update lambda_function.py hello-world-didan.zip
+>```
+>Command ini berfungsi untuk mengubah file lambda_function.py yang ada di github repository menjadi file zip yang nanti digunakan untuk upload ke Lambda function
 
-```
-aws --version
+>```
+>aws --version
+>
+>aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+>aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+>aws configure set aws_session_token $AWS_SESSION_TOKEN
+>aws configure set region us-west-2
+>
+>aws lambda update-function-code --function-name hello-world-didan --zip-file fileb://hello-world-didan.zip
+>```
+>Command ini digunakan untuk agar Jenkins bisa terkoneksi dengan AWS, kemudian meng-update code Lambda dengan file zip dari command sebelumnya.
 
-aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-aws configure set aws_session_token $AWS_SESSION_TOKEN
-aws configure set region us-west-2
-
-aws lambda update-function-code --function-name hello-world-didan --zip-file fileb://hello-world-didan.zip
-```
-Command ini digunakan untuk agar Jenkins bisa terkoneksi dengan AWS, kemudian meng-update code Lambda dengan file zip dari command sebelumnya.
+* Selesai untuk konfigurasinya, kita coba untuk mengubah kode yang ada di github kemudian klik Build Now pada Jenkins dan lihat hasil perubahan kode di Lambda nya
 
 
 
