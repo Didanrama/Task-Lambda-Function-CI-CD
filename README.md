@@ -81,7 +81,7 @@ pipeline {
         stage('Build and Package') {
             steps {
                 script {
-                    bat 'powershell -Command "Compress-Archive -Path * -DestinationPath hello-world-didan.zip -Update"'
+                    bat 'powershell -Command "Compress-Archive -Path lambda_function.py -DestinationPath hello-world-didan.zip -Update"'
                 }
             }
         }
@@ -110,7 +110,12 @@ pipeline {
     }
 }
 ```
-Untuk script kurang lebih fungsinya sama seperti di tipe Freestyle Project yakni mengubah file 
+Untuk script kurang lebih fungsinya sama seperti di tipe Freestyle Project yakni mengubah file lambda_function.py menjadi file zip yang kemudian akan di upload ke Lambda Function.
+
+* Selanjutnya kita coba untuk agar saat kita ubah kode di github otomatis langsung mengubah kode pada Lambda tanpa harus kita klik Build Now di Jenkinsnya dengan menggunakan Webhook Github. Kita memerlukan nama domain public untuk dipasang nanti di Webhook Github, jadi saya menggunakan Ngrok untuk mengubah localhost menjadi bisa public. Hasilnya seperti ini
+
+![image](https://github.com/user-attachments/assets/5a321cb1-abaa-4fbe-adfa-6142f866f1c3)
+
 
 
 
