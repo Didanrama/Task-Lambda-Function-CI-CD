@@ -116,6 +116,9 @@ Untuk script kurang lebih fungsinya sama seperti di tipe Freestyle Project yakni
 
 ![image](https://github.com/user-attachments/assets/5a321cb1-abaa-4fbe-adfa-6142f866f1c3)
 
+* Kemudian kita setting Webhook Githubnya, berikut adalah settingan yang digunakan
+
+![image](https://github.com/user-attachments/assets/2c02ea64-baaa-406f-8ffa-fd40cf9b10e4)
 
 
 
