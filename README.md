@@ -29,7 +29,7 @@ Tools/Bahan yang digunakan pada tugas ini :
 ![image](https://github.com/user-attachments/assets/455bec90-aad9-4cde-a237-31b4fc6ebe2a)
 ![image](https://github.com/user-attachments/assets/62438420-a719-45c7-9eed-69e9206ace08)
 
-Untuk command shell yang saya digunakan yakni : 
+Untuk command shell yang digunakan yakni : 
 >```
 >powershell Compress-Archive -Update lambda_function.py hello-world-didan.zip
 >```
@@ -50,6 +50,67 @@ Untuk command shell yang saya digunakan yakni :
 * Selesai untuk konfigurasinya, kita coba untuk mengubah kode yang ada di github kemudian klik Build Now pada Jenkins dan lihat hasil perubahan kode di Lambda nya
 
 https://github.com/user-attachments/assets/996f4fa9-8de0-4e7e-9ab7-e433fda2a503
+
+## Jenkins Pipeline
+
+* Kita akan mencoba tipe Pipeline. Buat item baru di Jenkins dengan tipe Pipeline, dan berikut adalah konfigurasi yang digunakan
+
+![image](https://github.com/user-attachments/assets/5f90109a-184a-4eec-933b-c29e8453660e)
+![image](https://github.com/user-attachments/assets/67eeb883-51a1-4bb3-9128-b0b488ee5eb1)
+![image](https://github.com/user-attachments/assets/7d367f31-f56a-4f18-9597-ee7901f1ae6e)
+Berikut script lebih jelas :
+```
+pipeline {
+    agent any
+
+    environment {
+        AWS_REGION = 'us-west-2'
+        LAMBDA_FUNCTION_NAME = 'hello-world-didan'
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY') 
+        AWS_SESSION_TOKEN = credentials('AWS_SESSION_TOKEN')
+    }
+
+    stages {
+        stage('Checkout Source Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Didanrama/Task-Lambda-Function-CI-CD.git'
+            }
+        }
+
+        stage('Build and Package') {
+            steps {
+                script {
+                    bat 'powershell -Command "Compress-Archive -Path * -DestinationPath hello-world-didan.zip -Update"'
+                }
+            }
+        }
+
+        stage('Update Lambda Function') {
+            steps {
+                script {
+                    bat """
+                        aws lambda update-function-code \
+                        --function-name ${LAMBDA_FUNCTION_NAME} \
+                        --zip-file fileb://hello-world-didan.zip \
+                        --region ${AWS_REGION}
+                    """
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Lambda function updated successfully!'
+        }
+        failure {
+            echo 'Failed to update the Lambda function.'
+        }
+    }
+}
+```
+Untuk script kurang lebih fungsinya sama seperti di tipe Freestyle Project yakni mengubah file 
 
 
 
