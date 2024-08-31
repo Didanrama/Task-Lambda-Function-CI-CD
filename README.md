@@ -120,7 +120,7 @@ Untuk script kurang lebih fungsinya sama seperti di tipe Freestyle Project yakni
 
 ![image](https://github.com/user-attachments/assets/2c02ea64-baaa-406f-8ffa-fd40cf9b10e4)
 
-* Kita setting juga pada Jenkins yakni centang GitHub hook trigger for GITScm polling, yang berfungsi untuk agar Jenkins dapat menerima push hook dari Github
+* Kita setting juga pada Jenkins yakni centang GitHub hook trigger for GITScm polling, yang berfungsi untuk agar Jenkins dapat menerima push hook dari Github. Pastikan Github Plugin sudah terinstall
 
 ![image](https://github.com/user-attachments/assets/ef8a95a9-061b-40ed-a9e9-b9a89fba84b5)
 
