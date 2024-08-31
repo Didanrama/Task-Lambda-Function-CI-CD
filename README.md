@@ -49,6 +49,8 @@ Untuk command shell yang saya digunakan yakni :
 
 * Selesai untuk konfigurasinya, kita coba untuk mengubah kode yang ada di github kemudian klik Build Now pada Jenkins dan lihat hasil perubahan kode di Lambda nya
 
+https://github.com/user-attachments/assets/996f4fa9-8de0-4e7e-9ab7-e433fda2a503
+
 
 
 
