@@ -124,5 +124,12 @@ Untuk script kurang lebih fungsinya sama seperti di tipe Freestyle Project yakni
 
 ![image](https://github.com/user-attachments/assets/ef8a95a9-061b-40ed-a9e9-b9a89fba84b5)
 
+* Terakhir kita lakukan percobaan
+
+https://github.com/user-attachments/assets/43ba1e95-d255-4368-90fd-00709abc0741
+
+### Terima Kasih
+
+*Made By Didan Ramadhan*
 
 
