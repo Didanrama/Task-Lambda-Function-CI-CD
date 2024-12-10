@@ -4,6 +4,6 @@ def lambda_handler(event, context):
     # TODO implement
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello World! PERUHABAN DARI GITHUB')
+        'body': json.dumps('Hello World! HALO SEMUANYA')
     }
  
